@@ -64,4 +64,6 @@ Prototype was mounted inside aluminium frame via four screws.
 
 ## _Coding_ ##
 
-In my project, there is used library for 7 segment Led display from **[Abaskin, GitHub](https://github.com/abaskin/MAX72XX.git)**. Two displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. Timing for **_Time/Date_** display, can be modifyed by code.
+In my project, there is used library for 7 segment Led display from **[Abaskin, GitHub](https://github.com/abaskin/MAX72XX.git)**. On mentioned link there are more information about functions, objects and other parts of library.
+
+Two displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. Timing for **_Time/Date_** display, can be modifyed by code.
