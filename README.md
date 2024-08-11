@@ -8,10 +8,10 @@ The exact time and date are obtained from the Network Time Protocol via WiFi.
 For a smaller display, about 0.8 inch schematic diagram is very simple.
 Problems are with large segments, containing more LEDs in series. In this case, the required voltage is higher than 5V. It is necessary to use some additional components and a special power supply.
 
-The main component is an ESP32 D1 mini, a microprocessor and some more Maxim ICs are used to drive displayes: MAX7219 and two MAX333 components. The entire circuit is connected using the recommended connection from the 
+The main component is an ESP32 D1 mini, a microprocessor and some more Maxim ICs are used to drive displayes: MAX7219 and two MAX333 components. The entire circuit is connected using the recommended connection from the
 **[Maxim Datasheet](https://html.alldatasheet.com/html-pdf/227794/MAXIM/MAX7219CNG/1902/12/MAX7219CNG.html)**. The power supply is a DC-DC converter 5V to dual voltage +5V, GND, -5V.
 
-The construction is simple, all electronic parts, including displays, are mounted on one PCB board.
+The construction is very simple, all electronic parts, including displays, are mounted on one PCB board.
 
 ## _Parts:_ ##
 
@@ -22,8 +22,8 @@ The construction is simple, all electronic parts, including displays, are mounte
 |3.| **U3, U4**| Analog switch, quad, SPDT, MAX333 (394)| 2|
 |4.| **LED1-LED6**| seven-segment display 2.3”, FJ23101| 6 |
 |5.|**Q1-Q6**|Transistor MOSFET, N-channel, IRF540N | 6 |
-|6.|**PS1**|DC-DC step up converter, 12V to -5V/GND/+5V| 1 |
-|7.|**SW1**| Toggle switch, SPST or DPST | 1 | 
+|6.|**PS1**|[DC-DC step up converter](https://www.aliexpress.com/item/1005006774647805.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.1.68adEGMYEGMYHH&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=28e66db0-9bde-4091-9a8d-69a461f326f4&_t=gps-id:pcDetailTopMoreOtherSeller,scm-url:1007.40050.354490.0,pvid:28e66db0-9bde-4091-9a8d-69a461f326f4,tpp_buckets:668%232846%238109%231935&isseo=y&pdp_npi=4%40dis%21EUR%215.69%215.69%21%21%2143.52%2143.52%21%40211b8f9917233803318415598e7946%2112000038261167645%21rec%21SK%21%21ABXZ&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A), 12V to -5V/GND/+5V| 1 |
+|7.|**SW1**| Toggle switch, SPST or DPST | 1 |
 |8.|**R1, R3-R8**| Resistor 470k | 7 |
 |9.|**R2**| Resistor 220ohm   | 1 |
 |10.|**R9**| Resistor 470   | 1 |
@@ -37,8 +37,6 @@ The construction is simple, all electronic parts, including displays, are mounte
 |18.|**C3, C4**| Capacitor 1000uF/25V | 2 |
 |19.| U6 | optional DS18B20 Temperature sensor|1|
 |20.|    | Pinhead connectors and IC sockets |  |
-
-
 
 ## _Circuit description_ ##
 
@@ -66,5 +64,4 @@ Prototype was mounted inside aluminium frame via four screws.
 
 ## _Coding_ ##
 
-In my project, there is used library for 7 segment Led display from Abaskin, GitHub. 2 displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. This timing can be modifyed by code.
-
+In my project, there is used library for 7 segment Led display from **[Abaskin, GitHub](https://github.com/abaskin/MAX72XX.git)**. Two displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. Timing for **_Time/Date_** display, can be modifyed by code.
