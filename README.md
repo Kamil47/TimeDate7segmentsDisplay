@@ -2,20 +2,20 @@
 
 ## _Introduction_ ##
 
-This article describes a seven segment, 2.3 inch large display, that shows the time and date. Hardware is ready to show temperature, just cooding need to be modified.
+This article describes a seven segment, 2.3-inch large display, that shows the time and date. Hardware is ready to show temperature, just coding need to be modified.
 
-The exact time and date are obtained from the Network Time Protocol via WiFi.
-For a smaller display, about 0.8 inch schematic diagram is very simple.
+The exact time and date are obtained from the Network Time Protocol via Wi-Fi.
+For a smaller display, about 0.8-inch schematic diagram is very simple.
 Problems are with large segments, containing more LEDs in series. In this case, the required voltage is higher than 5V. It is necessary to use some additional components and a special power supply.
 
-The main component is an ESP32 D1 mini, a microprocessor and some more Maxim ICs are used to drive displayes: MAX7219 and two MAX333 components. The entire circuit is connected using the recommended connection from the
+The main component is an ESP32 D1 mini, a microprocessor and some more Maxim ICs are used to drive displays: MAX7219 and two MAX333 components. The entire circuit is connected using the recommended connection from the
 **[Maxim Datasheet](https://html.alldatasheet.com/html-pdf/227794/MAXIM/MAX7219CNG/1902/12/MAX7219CNG.html)**. The power supply is a DC-DC converter 5V to dual voltage +5V, GND, -5V.
 
 The construction is very simple, all electronic parts, including displays, are mounted on one PCB board.
 
 ## _Parts:_ ##
 
-|Number|Part| Description               | Peaces|
+|Number|Part| Description               | Peace's|
 |----|-----|------------------------------------|----|
 |1.| **U1** | Microprocessor [ESP32 D1 mini](https://www.az-delivery.de/en/products/esp32-d1-mini?_pos=3&_psq=esp32+&_ss=e&_v=1.0) | 1|
 |2.| **U2** | Seven-segments driver [MAX7219](https://sk.farnell.com/analog-devices/max7219cng/led-driver-8-digit-cc-7219-dip24/dp/2519433?&CMP=KNC-GSK-GEN-SKU-MDC-Semiconductors&mckv=s_dc%7Cpcrid%7C531270741482%7Ckword%7Cmax7219cng%7Cmatch%7Cp%7Cplid%7C%7Cslid%7C%7Cproduct%7C%7Cpgrid%7C127332857754%7Cptaid%7Ckwd-305398746652%7C&gad_source=1&gclid=EAIaIQobChMInvehx9jvhwMVb6WDBx0aFw0IEAAYASAAEgIyRvD_BwE) | 1|
@@ -48,9 +48,9 @@ Individual digits are activated through common cathode, outputs DIGIT 0 – 5. J
 
 ISET pin 18 allow to adjust peak segment current by connected resistor R2. Resistor value calculation is described in Datasheet.
 
-Diode LED7 detect problem with WI-FI signal, if On means error. LDR photoresistor R10 sense ambient light and according of this level, adjust brightness of led segments.
+Diode LED7 detect problem with WI-FI signal, if **_On_** means error. LDR photoresistor R10 sense ambient light and according of this level, adjust brightness of led segments.
 
-Temperature sensore DS18B20 is connected to pin IO5 of microprocessor U1. It is prepared to sense temperature, but code does not use and programm it.
+Temperature sensor DS18B20 is connected to pin IO5 of microprocessor U1. It is prepared to sense temperature, but code does not use and program it.
 
 ## _Construction_ ##
 
@@ -66,12 +66,12 @@ Prototype was mounted inside aluminium frame via four screws.
 
 In my project, there is used library for 7 segment Led display from **[Abaskin, GitHub](https://github.com/abaskin/MAX72XX.git)**. On mentioned link there are more information about functions, objects and other parts of library.
 
-Two displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. Timing for **_Time/Date_** display, can be modifyed by code.
+Two displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. Timing for **_Time/Date_** display, can be modified by code.
 
 ## _Conclusion_ ##
 
-The ambient temperature could be displayed, but I hesitate if it is useful. There must be some more time interval for temperature inside one minute. Is it worse instead of time information or not? Finally I decided not to include the temperature. If somebody need it, is ready.
+The ambient temperature could be displayed, but I hesitate if it is useful. There must be some more time interval for temperature inside one minute. Is it worse instead of time information or not? Finally, I decided not to include the temperature. If somebody need it, is ready.
 
-The weakest point is code for sensing ambient light and display brightnest. I used just four steps to distinguish levels and code in this functions could be improved.
+The weakest point is code for sensing ambient light and display brightness. I used just four steps to distinguish levels and code in this function could be improved.
 
-Generally I can find many DIY digital clocks, but I was not successful to find clock with large 7 segments digits. From this point of view, and especially from the point of view of electronic problem solving, my project can be useful for many enthusiasts.
+Generally, I can find many DIY digital clocks, but I was not successful to find clock with large 7 segments digits. From this point of view, and especially from the point of view of electronic problem solving, my project can be useful for many enthusiasts.
