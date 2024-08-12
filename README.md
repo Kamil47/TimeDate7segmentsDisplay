@@ -72,6 +72,4 @@ Two displays are shown in time sequences, one for time and one for date. Format 
 
 The ambient temperature could be displayed, but I hesitate if it is useful. There must be some more time interval for temperature inside one minute. Is it worse instead of time information or not? Finally, I decided not to include the temperature. If somebody need it, is ready.
 
-The weakest point is code for sensing ambient light and display brightness. I used just four steps to distinguish levels and code in this function could be improved.
-
 Generally, I can find many DIY digital clocks, but I was not successful to find clock with large 7 segments digits. From this point of view, and especially from the point of view of electronic problem solving, my project can be useful for many enthusiasts.
