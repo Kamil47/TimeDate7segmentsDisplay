@@ -46,11 +46,11 @@ Individual digits are activated through common cathode, outputs DIGIT 0 – 5. J
 
 3 wire SPI serial interface connect the IC MAX7219 to microprocessor. Serial input for data is DATA **_pin 1_**, for CLK with max. 10MHz. **_Pin 13_** and LOAD **_pin 12_** loads incoming data.
 
-ISET pin 18 allow to adjust peak segment current by connected resistor R2. Calculation is described in Datasheet.
+ISET pin 18 allow to adjust peak segment current by connected resistor R2. Resistor value calculation is described in Datasheet.
 
 Diode LED7 detect problem with WI-FI signal, if On means error. LDR photoresistor R10 sense ambient light and according of this level, adjust brightness of led segments.
 
-Temperature sensore DS18B20 is connected to pin IO5 of microprocessor U1. It is prepared to sense temperature, but code does not programm it.
+Temperature sensore DS18B20 is connected to pin IO5 of microprocessor U1. It is prepared to sense temperature, but code does not use and programm it.
 
 ## _Construction_ ##
 
@@ -67,3 +67,12 @@ Prototype was mounted inside aluminium frame via four screws.
 In my project, there is used library for 7 segment Led display from **[Abaskin, GitHub](https://github.com/abaskin/MAX72XX.git)**. On mentioned link there are more information about functions, objects and other parts of library.
 
 Two displays are shown in time sequences, one for time and one for date. Format of Date is **_DD. MM. YY_** (_DD_ Day of Month, _MM_ Month, _YY_ Year-2000). Date display is activated at the end of the minute, in each the 52-th second and remain active for seven seconds. Timing for **_Time/Date_** display, can be modifyed by code.
+
+
+## _Conclusion_ ##
+
+The ambient temperature could be displayed, but I hesitate if it is useful. There must be some more time interval for temperature inside one minute. Is it worse instead of time information or not? Finally I decided not to include the temperature. If somebody need it, is ready.
+
+The weakest point is code for sensing ambient light and display brightnest. I used just four steps to distinguish levels and code in this functions could be improved.
+
+Generally I can find many DIY digital clocks, but I was not successful to find clock with large 7 segments digits. From this point of view, and especially from the point of view of electronic problem solving, my project can be useful for many enthusiasts. 
